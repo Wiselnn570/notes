@@ -29,8 +29,16 @@
 - MIMIC-IT: Multi-Modal In-Context Instruction Tuning
     - propose a dataset(MIMIC-IT) consisting of perception, reasoning, planning
 
-- Exploring Diverse In-Context Configurations for Image Captioning
+- **Exploring Diverse In-Context Configurations for Image Captioning**
     - extensive work in image-caption in context task, indicate that caption is more important than img, if caption is good enough, the more shot the better, img similarity don't influence ans too much.
 
+- **An Empirical Study of GPT-3 for Few-Shot Knowledge-Based VQA**
+	- propose Pica model, which transform vqa as qa using offline img-to-text tools and use LLM's few shot ability. 
+
 - Prophet: Prompting Large Language Models with Complementary Answer Heuristics for Knowledge-based Visual Question Answering
-    - 
+	- an augmentation beyond Pica, use two stage to produce fine-grained qa.
+	
+- **Multimodal Few-Shot Learning withFrozen Language Models**
+	- freeze language model, only train vision encoder, use few shot data, get desired output.
+
+
