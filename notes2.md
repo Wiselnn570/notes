@@ -8,4 +8,10 @@
     - param:
         - one dim list
         - add_special_tokens: False -> do not add [cls] and [sep]
-        
+- tokenizer.batch_decode()
+    - param:
+        - skip_special_tokens: True -> skip special tokens when decoding
+
+- method of slice
+    - [:, 2], pick all first dimension, only choose index 2 position in second dimension
+    - [..., 2], pick all previous dimension(maybe more than one), ...
