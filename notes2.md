@@ -15,3 +15,7 @@
 - method of slice
     - [:, 2], pick all first dimension, only choose index 2 position in second dimension
     - [..., 2], pick all previous dimension(maybe more than one), ...
+
+- casualllmgeneration
+    - attention: tuple(torch.floattensor): 32 blocks 1 batch_size 32 heads 625 * 625 dims then 1 * 626...
+    - past_key_values: tuple(k, v) (bs, num_seq, hidden_size)
