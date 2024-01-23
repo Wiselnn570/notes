@@ -33,3 +33,10 @@
     - only accept 1 dim numpy -> [1, 23, 4, 5, ...]
 
 - model.llm_tokenizer.bos_token_id to get bos_token_id, then get token by model.llm_tokenizer.convert_ids_to_tokens(....to_list())(to_list -> convert numpy array to list)
+
+- @decorate execution logitism
+    - execute decorate function(use function wrapping the real function)
+    - in decorate function call real function
+    - **all the params in real function pass to the decorate function**
+
+- 
