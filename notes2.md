@@ -4,10 +4,12 @@
     - model.resize_token_embeddings(len(tokenizer))
     - tokenizer.save_pretrained()
     - 执行完tokenizer.save_pretrained(model_dir) 后，你可以在原保存model目录下，查看vocab.txt中[unused]被替换掉，同时也会更新生成新的added_tokens.json，special_tokens_map文件。
+
 - tokenizer()
     - param:
         - one dim list
         - add_special_tokens: False -> do not add [cls] and [sep]
+        
 - tokenizer.batch_decode()
     - param:
         - skip_special_tokens: True -> skip special tokens when decoding
@@ -32,7 +34,7 @@
 - convert_ids_to_tokens
     - only accept 1 dim numpy -> [1, 23, 4, 5, ...]
 
-- model.llm_tokenizer.bos_token_id to get bos_token_id, then get token by model.llm_tokenizer.convert_ids_to_tokens(....to_list())(to_list -> convert numpy array to list)
+- model.llm_tokenizer.bos_token_id to get bos_token_id, then get token by model.llm_tokenizer.convert_ids_to_tokens(....to_list())(to_list -> convert numpy array to list | .numpy() -> convert torch array to numpy)
 
 - @decorate execution logitism
     - execute decorate function(use function wrapping the real function)
