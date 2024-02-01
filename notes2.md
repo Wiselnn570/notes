@@ -41,4 +41,114 @@
     - in decorate function call real function
     - **all the params in real function pass to the decorate function**
 
-- 
+- exception catch method 
+    - raise ValueError(f'Unknown vision tower: {vision_tower}')
+
+- patch_embed
+    - bs, patch, hidden_size
+
+- ```pip install -e``` and ```pyproject.toml```
+    - when run former, execute the latter.
+
+- an absolute pyproject.toml
+```
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llava"
+version = "1.1.1"
+description = "Towards GPT-4 like large language and visual assistant."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "einops", "fastapi", "gradio==3.35.2", "markdown2[all]", "numpy",
+    "requests", "sentencepiece", "tokenizers>=0.12.1",
+    "torch==2.0.1", "torchvision==0.15.2", "uvicorn", "wandb",
+    "shortuuid", "httpx==0.24.0",
+    "deepspeed==0.9.5",
+    "peft==0.4.0",
+    "transformers==4.31.0",
+    "accelerate==0.21.0",
+    "bitsandbytes==0.41.0",
+    "scikit-learn==1.2.2",
+    "sentencepiece==0.1.99",
+    "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13",
+    "gradio_client==0.2.9"
+]
+
+[project.urls]
+"Homepage" = "https://llava-vl.github.io"
+"Bug Tracker" = "https://github.com/haotian-liu/LLaVA/issues"
+
+# expose module
+[tool.setuptools.packages.find]
+exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
+
+[tool.wheel]
+exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
+```
+
+- llava -> vision tower + vicuna
+
+- generation_config.json derive from config.json if there is no generation_config.json in model folder
+```
+{
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0"
+}
+```
+
+- python class init sample
+    - ```
+    class G:
+        def test(self):
+            print('123')
+    class E:
+        def __init__(self, config):
+                super().__init__(config)
+                print('class E')
+            def test(self):
+                print('hello')
+        class D(E):
+            t = 3
+            def __init__(self, config):
+                super().__init__(config)
+                print('class D~')
+        class A(D):
+            def __init__(self, config):
+                super(A, self).__init__(config)
+                self.a = config.get('a')
+                print('class A')
+        class B(G):
+            def __init__(self, config):
+                super(B, self).__init__()
+                self.b = 32
+                print('class B')
+        class C(A, B):
+            def __init__(self, config):
+                super().__init__(config)
+                print('class C')
+        config = {'a': 'test'}
+        t = C(config)
+        ```
+    - output: 
+        class B
+        class E
+        class D~
+        class A
+        class C
+    - sequence:
+        - CADEBG
+
+- __init__: LlavaLlamaForCausalLM -> PreTrainedModel -> Module(/mnt/petrelfs/weixilin/miniconda3/envs/minigpt4/lib/python3.9/site-packages/torch/nn/modules/module.py)
+
+- torch.numel(): count the amount of number 
