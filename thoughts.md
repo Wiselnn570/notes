@@ -1,3 +1,3 @@
-- current mllm suffers side effect in cocurrent, and most frequent object bcs of data driven method.
+- current mllm suffers side effect in cocurrent, and most frequent object because of data driven method.
 - mllm have no idea thinking as human beings, so way to improve performance can modeling a identical distribution like the reality.
 - 

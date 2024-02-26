@@ -53,4 +53,10 @@
 - ALIGNING LARGE MULTIMODAL MODELS WITH FACTUALLY AUGMENTED RLHF
 	- crowd force to train reward model without hallucination in a ans-level with both ground-truth label and reward model signal as rl supervision
 
+- Less is More: Mitigating Multimodal Hallucination from an EOS Decision Perspective
+	- indicate mllm have potential to eos based on visual perception limits.
+	- two way augment this potential
+		- alter mle loss (eos and non-eos)
+		- data filter
+		
 ##### 

@@ -152,3 +152,4 @@ exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", 
 - __init__: LlavaLlamaForCausalLM -> PreTrainedModel -> Module(/mnt/petrelfs/weixilin/miniconda3/envs/minigpt4/lib/python3.9/site-packages/torch/nn/modules/module.py)
 
 - torch.numel(): count the amount of number 
+- 
